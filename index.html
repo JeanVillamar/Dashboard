@@ -1,112 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Café de Tere</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Dashboard – Café de Tere</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-neutral-50 text-gray-800 font-sans">
-  <header class="bg-amber-800 text-white py-4 shadow-md">
-    <h1 class="text-center text-3xl font-semibold">Dashboard - Café de Tere</h1>
-    <p class="text-center text-sm text-amber-200">Análisis de reputación y engagement en redes sociales</p>
-  </header>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-6xl mx-auto py-6 px-4">
+    <h1 class="text-3xl font-bold mb-6 text-center">📊 Análisis de Conversación – Café de Tere</h1>
 
-  <!-- KPIs -->
-  <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-    <div class="bg-white shadow-md rounded-xl p-4 text-center">
-      <h3 class="text-gray-500 text-sm">Likes Promedio</h3>
-      <p class="text-3xl font-bold text-amber-800">12.2</p>
+    <!-- Sentimiento -->
+    <div class="bg-white rounded-2xl shadow p-4 mb-6">
+      <h2 class="text-xl font-semibold mb-2">🧠 Sentimiento General</h2>
+      <p class="text-lg font-medium text-blue-600">
+        Sentimiento: NEUTRAL (confianza 66%)
+      </p>
+      <p class="text-gray-700 mt-2">
+        El conjunto es altamente polarizado. Hay muchos comentarios positivos (elogian el sabor, el tigrillo/bolón, la limpieza/servicio y el éxito del emprendimiento) y muchos negativos (caro/sobrevalorado, “normalito/malo”, no aceptan tarjetas, pérdida de sazón). Dado el volumen e intensidad similares en ambos sentidos, el promedio neto resulta neutral.
+      </p>
     </div>
-    <div class="bg-white shadow-md rounded-xl p-4 text-center">
-      <h3 class="text-gray-500 text-sm">Retweets Promedio</h3>
-      <p class="text-3xl font-bold text-amber-800">33.9</p>
-    </div>
-    <div class="bg-white shadow-md rounded-xl p-4 text-center">
-      <h3 class="text-gray-500 text-sm">Correlación Seguidor–Like</h3>
-      <p class="text-3xl font-bold text-amber-800">0.37</p>
-    </div>
-    <div class="bg-white shadow-md rounded-xl p-4 text-center">
-      <h3 class="text-gray-500 text-sm">Hora Pico</h3>
-      <p class="text-3xl font-bold text-amber-800">22:00</p>
-    </div>
-  </section>
 
-  <!-- Gráficos -->
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
-    <div class="bg-white rounded-xl shadow-md p-4">
-      <h2 class="text-lg font-semibold mb-2 text-amber-800">Engagement por Tema</h2>
-      <canvas id="chartEngagement"></canvas>
+    <!-- Colocaciones -->
+    <div class="bg-white rounded-2xl shadow p-4 mb-6">
+      <h2 class="text-xl font-semibold mb-2">🔑 Colocaciones Principales</h2>
+      <ul class="list-disc ml-6 text-gray-800">
+        <li>Café de Tere</li>
+        <li>Bolón de Tere</li>
+        <li>Tigrillo del Café de Tere</li>
+        <li>Bolón mixto</li>
+        <li>Bolón de maduro</li>
+        <li>Bolón de verde</li>
+        <li>Chicharrón</li>
+        <li>Ají</li>
+        <li>Jugo de naranja</li>
+        <li>Caro/sobrevalorado</li>
+        <li>No aceptan tarjetas</li>
+        <li>Servicio y limpieza</li>
+        <li>Emprendimiento/caso de éxito</li>
+        <li>Franquicia/crecimiento</li>
+        <li>Marketing</li>
+      </ul>
+      <p class="text-gray-700 mt-2">
+        Las colocaciones giran en torno a la marca “Café/Bolón de Tere” y a su plato emblema (bolón, tigrillo), combinados con atributos de producto (mixto, maduro/verde, chicharrón, ají, jugo) y con evaluaciones de valor (“caro/sobrevalorado”, “servicio y limpieza”). Coaparecen con rasgos del negocio (“emprendimiento”, “franquicia/crecimiento”, “marketing”) y con fricciones de consumo (“no aceptan tarjetas”, precios concretos y costos de domicilio). 
+      </p>
     </div>
-    <div class="bg-white rounded-xl shadow-md p-4">
-      <h2 class="text-lg font-semibold mb-2 text-amber-800">Actividad por Día (Heatmap)</h2>
-      <canvas id="chartActivity"></canvas>
-    </div>
-  </section>
 
-  <!-- Insights -->
-  <section class="p-6">
-    <div class="bg-white shadow-md rounded-xl p-6">
-      <h2 class="text-xl font-semibold text-amber-800 mb-4">Insights Clave</h2>
-      <ul class="space-y-2 list-disc list-inside">
-        <li><strong>Precio y Valor:</strong> ofrecer combos populares y mostrar qué incluye el precio.</li>
-        <li><strong>Medios de Pago:</strong> implementar POS y QR, el reclamo más frecuente.</li>
-        <li><strong>Consistencia:</strong> estandarizar recetas y control de sabor por local.</li>
-        <li><strong>Experiencia en Sala:</strong> optimizar flujos y confort, habilitar pre-orden.</li>
-        <li><strong>Reputación:</strong> promover mensajes inclusivos y cercanos a la gente.</li>
+    <!-- Gráfico de correlaciones -->
+    <div class="bg-white rounded-2xl shadow p-4 mb-6">
+      <h2 class="text-xl font-semibold mb-2">📈 Correlaciones (Followers vs Variables)</h2>
+      <canvas id="corrChart" height="200"></canvas>
+    </div>
+
+    <!-- Entidades -->
+    <div class="bg-white rounded-2xl shadow p-4 mb-6 overflow-x-auto">
+      <h2 class="text-xl font-semibold mb-2">🏷️ Entidades Relevantes</h2>
+      <table class="min-w-full text-sm border">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">Entidad</th>
+            <th class="border p-2">Tipo</th>
+            <th class="border p-2">Frecuencia</th>
+            <th class="border p-2">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="border p-2">Café de Tere</td><td class="border p-2">Marca/Restaurante</td><td class="border p-2">muy alta</td><td class="border p-2">Cadena guayaquileña de desayunos; centro de la discusión (precio, calidad, pagos, marketing).</td></tr>
+          <tr><td class="border p-2">Teresa Castro Mendoza</td><td class="border p-2">Persona</td><td class="border p-2">media</td><td class="border p-2">Fundadora y dueña del Café de Tere; caso de emprendimiento destacado.</td></tr>
+          <tr><td class="border p-2">Bolón</td><td class="border p-2">Producto/Plato típico</td><td class="border p-2">muy alta</td><td class="border p-2">Plato icónico del debate; se compara su calidad y precio en distintos locales.</td></tr>
+          <tr><td class="border p-2">Tigrillo</td><td class="border p-2">Producto/Plato típico</td><td class="border p-2">alta</td><td class="border p-2">Segundo plato más mencionado de Café de Tere (opiniones divididas sobre sazón/consistencia).</td></tr>
+          <tr><td class="border p-2">Ají</td><td class="border p-2">Acompañante</td><td class="border p-2">media</td><td class="border p-2">Acompañante clave; a veces más valorado que el bolón en comentarios.</td></tr>
+          <tr><td class="border p-2">Jugo de naranja</td><td class="border p-2">Bebida</td><td class="border p-2">media</td><td class="border p-2">Muy citado; precios percibidos como altos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Temas -->
+    <div class="bg-white rounded-2xl shadow p-4 mb-6">
+      <h2 class="text-xl font-semibold mb-2">📚 Principales Temas Detectados</h2>
+      <ul class="list-disc ml-6 text-gray-800">
+        <li>Calidad vs. precio del Café de Tere: debate sobre si es caro/sobrevalorado frente a porciones, limpieza, consistencia y servicio.</li>
+        <li>Historia de emprendimiento: admiración por Doña Tere, ventas millonarias y críticas por “marketing” o pérdida de sazón.</li>
+        <li>Experiencia de compra y pagos: reclamos por no aceptar tarjetas, uso de efectivo y práctica de recoger bandejas.</li>
+        <li>Identidad gastronómica guayaquileña: bolón y tigrillo como emblemas; comparaciones con huecas y otras ciudades.</li>
+        <li>Polarización social en redes: ‘lovers vs. haters’, acusaciones de resentimiento/clasismo y viralidad mediática.</li>
+        <li>Comparación con competidores: Amorfino, Rey Bolón, Bolóncity, entre otros.</li>
       </ul>
     </div>
-  </section>
-
-  <footer class="text-center text-xs text-gray-500 py-4">
-    © 2025 Dashboard Café de Tere — Elaborado con datos sociales (Twitter)
-  </footer>
+  </div>
 
   <script>
-    // Gráfico de Engagement
-    const ctx1 = document.getElementById('chartEngagement').getContext('2d');
-    new Chart(ctx1, {
+    // === Gráfico Correlaciones ===
+    const corr = {
+      "user.followers_count": 1.0,
+      "user.friends_count": 0.577,
+      "id": -0.145,
+      "favorite_count": 0.374,
+      "retweet_count": 0.128
+    };
+    new Chart(document.getElementById('corrChart'), {
       type: 'bar',
       data: {
-        labels: ['Precio/Valor', 'Calidad', 'Medios de Pago', 'Servicio', 'Delivery', 'Reputación'],
+        labels: Object.keys(corr),
         datasets: [{
-          label: 'Nivel de Engagement',
-          data: [85, 70, 60, 50, 40, 65],
-          backgroundColor: '#92400e'
+          label: 'Correlación con followers_count',
+          data: Object.values(corr),
+          backgroundColor: 'rgba(54,162,235,0.6)'
         }]
       },
       options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#78350f' } },
-          x: { ticks: { color: '#78350f' } }
-        }
-      }
-    });
-
-    // Heatmap simulado (día/hora)
-    const ctx2 = document.getElementById('chartActivity').getContext('2d');
-    new Chart(ctx2, {
-      type: 'line',
-      data: {
-        labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
-        datasets: [{
-          label: 'Menciones Totales',
-          data: [2200, 1800, 2700, 500, 300, 150, 100],
-          borderColor: '#f59e0b',
-          backgroundColor: 'rgba(245,158,11,0.2)',
-          tension: 0.3,
-          fill: true
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: true, ticks: { color: '#78350f' } },
-          x: { ticks: { color: '#78350f' } }
+          y: { min: -1, max: 1 }
         }
       }
     });
